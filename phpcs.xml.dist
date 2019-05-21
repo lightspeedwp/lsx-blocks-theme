@@ -8,6 +8,7 @@
 	<!-- Set a description for this ruleset. -->
 	<description>A custom set of code standard rules to check for WordPress themes.</description>
 
+	<config name="installed_paths" value="/usr/local/bin/WordPress-Coding-Standards-develop/,/usr/local/bin/PHPCompatibility-master/" />
 
 	<!--
 	#############################################################################
@@ -90,7 +91,6 @@
 	#############################################################################
 	-->
 
-
 	<config name="testVersion" value="5.2-99.0"/>
 	<rule ref="PHPCompatibility">
 		<!-- Whitelist PHP native classes, interfaces, functions and constants which
@@ -112,13 +112,6 @@
 		<exclude name="PHPCompatibility.PHP.NewFunctions.array_replace_recursiveFound"/>
 
 		<exclude name="PHPCompatibility.PHP.NewInterfaces.jsonserializableFound"/>
-	</rule>
-
-	<!-- Whitelist the WP Core mysql_to_rfc3339() function. -->
-	<rule ref="PHPCompatibility.PHP.RemovedExtensions">
-		<properties>
-			<property name="functionWhitelist" type="array" value="mysql_to_rfc3339"/>
-		</properties>
 	</rule>
 
 </ruleset>
