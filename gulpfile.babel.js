@@ -132,7 +132,6 @@ export function php() {
 	// If not a rebuild, then run tasks on changed files only.
 	.pipe(gulpif(!isRebuild, newer(paths.php.dest)))
 	.pipe(phpcs({
-		bin: 'vendor/bin/phpcs',
 		standard: 'WordPress',
 		warningSeverity: 0
 	}))
@@ -168,7 +167,6 @@ export function styles() {
 	return gulp.src(paths.styles.src)
 	.pipe(print())
 	.pipe(phpcs({
-		bin: 'vendor/bin/phpcs',
 		standard: 'WordPress',
 		warningSeverity: 0
 	}))

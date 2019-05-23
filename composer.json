@@ -1,5 +1,5 @@
 {
-  "name": "wprig/wprig",
+  "name": "lsx-blocks-theme",
   "description": "A progressive theme development rig for WordPress.",
   "type": "wordpress-theme",
   "license": "GPL-2.0",
@@ -12,7 +12,7 @@
     "install-codestandards": [
       "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
     ],
-    "phpcs-dev": "\"vendor/bin/phpcs\"",
+    "phpcs-dev": "\"~/.composer/vendor/bin/phpcs\"",
     "run-phpcs": [
       "@phpcs-dev"
     ]
