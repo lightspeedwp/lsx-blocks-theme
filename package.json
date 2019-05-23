@@ -1,17 +1,17 @@
 {
-  "name": "wprig",
-  "version": "1.0.4",
-  "description": "A progressive theme development rig for WordPress.",
-  "author": "Morten Rand-Hendriksen",
+  "name": "lsx-blocks-theme",
+  "version": "1.0.0",
+  "description": "A theme for the LSX Blocks Plugin",
+  "author": "LightSpeed",
   "license": "GPL-3.0",
   "main": "index.php",
-  "homepage": "https://github.com/wprig/wprig#readme",
+  "homepage": "https://github.com/lightspeeddevelopment/lsx-blocks-theme#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wprig/wprig.git"
+    "url": "git+https://github.com/lightspeeddevelopment/lsx-blocks-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/wprig/wprig/issues"
+    "url": "https://github.com/lightspeeddevelopment/lsx-blocks-theme/issues"
   },
   "dependencies": {},
   "devDependencies": {
