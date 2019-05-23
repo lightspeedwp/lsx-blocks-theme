@@ -2,7 +2,7 @@
 
 module.exports = {
 	theme: {
-		slug: 'lsx-blocks-theme',
+		slug: 'lsx_blocks_theme',
 		name: 'LSX Blocks Theme',
 		author: 'lightspeed'
 	},

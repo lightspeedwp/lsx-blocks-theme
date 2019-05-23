@@ -1,0 +1,1 @@
+{"version":3,"file":"../../../dev/css/lsx-blocks-theme.css","sources":["dev/css/lsx-blocks-theme.scss","dev/css/scss/_variables.scss"],"sourcesContent":["@import 'scss/variables';","body {\n    color:black;\n}"],"names":[],"mappings":"ACAA,AAAA,IAAI,CAAC;EACD,KAAK,EAAC,KAAK,GACd"}
