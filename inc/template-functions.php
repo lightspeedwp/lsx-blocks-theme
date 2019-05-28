@@ -2,16 +2,15 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 /**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
  * @return array
  */
-function lsx-blocks-theme_body_classes( $classes ) {
+function lsx_blocks_theme_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -26,17 +25,17 @@ function lsx-blocks-theme_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'lsx-blocks-theme_body_classes' );
+add_filter( 'body_class', 'lsx_blocks_theme_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function lsx-blocks-theme_pingback_header() {
+function lsx_blocks_theme_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'lsx-blocks-theme_pingback_header' );
+add_action( 'wp_head', 'lsx_blocks_theme_pingback_header' );
 
 /**
  * Adds async/defer attributes to enqueued / registered scripts.
@@ -48,7 +47,7 @@ add_action( 'wp_head', 'lsx-blocks-theme_pingback_header' );
  * @param string $handle The script handle.
  * @return array
  */
-function lsx-blocks-theme_filter_script_loader_tag( $tag, $handle ) {
+function lsx_blocks_theme_filter_script_loader_tag( $tag, $handle ) {
 
 	foreach ( array( 'async', 'defer' ) as $attr ) {
 		if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
@@ -67,7 +66,7 @@ function lsx-blocks-theme_filter_script_loader_tag( $tag, $handle ) {
 	return $tag;
 }
 
-add_filter( 'script_loader_tag', 'lsx-blocks-theme_filter_script_loader_tag', 10, 2 );
+add_filter( 'script_loader_tag', 'lsx_blocks_theme_filter_script_loader_tag', 10, 2 );
 
 /**
  * Generate preload markup for stylesheets.
@@ -75,7 +74,7 @@ add_filter( 'script_loader_tag', 'lsx-blocks-theme_filter_script_loader_tag', 10
  * @param object $wp_styles Registered styles.
  * @param string $handle The style handle.
  */
-function lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, $handle ) {
+function lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, $handle ) {
 	$preload_uri = $wp_styles->registered[ $handle ]->src . '?ver=' . $wp_styles->registered[ $handle ]->ver;
 	return $preload_uri;
 }
@@ -86,10 +85,10 @@ function lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, $handle ) {
  *
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
  */
-function lsx-blocks-theme_add_body_style() {
+function lsx_blocks_theme_add_body_style() {
 
 	// If AMP is active, do nothing.
-	if ( lsx-blocks-theme_is_amp() ) {
+	if ( lsx_blocks_theme_is_amp() ) {
 		return;
 	}
 
@@ -99,23 +98,23 @@ function lsx-blocks-theme_add_body_style() {
 	$preloads = array();
 
 	// Preload content.css.
-	$preloads['lsx-blocks-theme-content'] = lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, 'lsx-blocks-theme-content' );
+	$preloads['lsx_blocks_theme-content'] = lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, 'lsx_blocks_theme-content' );
 
 	// Preload sidebar.css and widget.css.
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$preloads['lsx-blocks-theme-sidebar'] = lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, 'lsx-blocks-theme-sidebar' );
-		$preloads['lsx-blocks-theme-widgets'] = lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, 'lsx-blocks-theme-widgets' );
+		$preloads['lsx_blocks_theme-sidebar'] = lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, 'lsx_blocks_theme-sidebar' );
+		$preloads['lsx_blocks_theme-widgets'] = lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, 'lsx_blocks_theme-widgets' );
 	}
 
 	// Preload comments.css.
 	if ( ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() ) ) {
-		$preloads['lsx-blocks-theme-comments'] = lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, 'lsx-blocks-theme-comments' );
+		$preloads['lsx_blocks_theme-comments'] = lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, 'lsx_blocks_theme-comments' );
 	}
 
 	// Preload front-page.css.
 	global $template;
 	if ( 'front-page.php' === basename( $template ) ) {
-		$preloads['lsx-blocks-theme-front-page'] = lsx-blocks-theme_get_preload_stylesheet_uri( $wp_styles, 'lsx-blocks-theme-front-page' );
+		$preloads['lsx_blocks_theme-front-page'] = lsx_blocks_theme_get_preload_stylesheet_uri( $wp_styles, 'lsx_blocks_theme-front-page' );
 	}
 
 	// Output the preload markup in <head>.
@@ -125,7 +124,7 @@ function lsx-blocks-theme_add_body_style() {
 	}
 
 }
-add_action( 'wp_head', 'lsx-blocks-theme_add_body_style' );
+add_action( 'wp_head', 'lsx_blocks_theme_add_body_style' );
 
 /**
  * Add dropdown symbol to nav menu items with children.
@@ -147,7 +146,7 @@ add_action( 'wp_head', 'lsx-blocks-theme_add_body_style' );
  * @param stdClass $args        An object of wp_nav_menu() arguments.
  * @return string Modified nav menu HTML.
  */
-function lsx-blocks-theme_add_primary_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
+function lsx_blocks_theme_add_primary_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
 
 	// Only for our primary menu location.
 	if ( empty( $args->theme_location ) || 'primary' != $args->theme_location ) {
@@ -161,7 +160,7 @@ function lsx-blocks-theme_add_primary_menu_dropdown_symbol( $item_output, $item,
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'lsx-blocks-theme_add_primary_menu_dropdown_symbol', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'lsx_blocks_theme_add_primary_menu_dropdown_symbol', 10, 4 );
 
 /**
  * Filters the HTML attributes applied to a menu item's anchor element.
@@ -173,7 +172,7 @@ add_filter( 'walker_nav_menu_start_el', 'lsx-blocks-theme_add_primary_menu_dropd
  * @param WP_Post $item  The current menu item.
  * @return array Modified HTML attributes
  */
-function lsx-blocks-theme_add_nav_menu_aria_current( $atts, $item ) {
+function lsx_blocks_theme_add_nav_menu_aria_current( $atts, $item ) {
 	/*
 	 * First, check if "current" is set,
 	 * which means the item is a nav menu item.
@@ -194,5 +193,5 @@ function lsx-blocks-theme_add_nav_menu_aria_current( $atts, $item ) {
 
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'lsx-blocks-theme_add_nav_menu_aria_current', 10, 2 );
-add_filter( 'page_menu_link_attributes', 'lsx-blocks-theme_add_nav_menu_aria_current', 10, 2 );
+add_filter( 'nav_menu_link_attributes', 'lsx_blocks_theme_add_nav_menu_aria_current', 10, 2 );
+add_filter( 'page_menu_link_attributes', 'lsx_blocks_theme_add_nav_menu_aria_current', 10, 2 );

@@ -4,7 +4,6 @@
  *
  * @package lsx_blocks_theme
  */
-
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images.

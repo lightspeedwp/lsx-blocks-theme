@@ -4,9 +4,8 @@
  *
  * @link https://jetpack.com/
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 /**
  * Jetpack setup function.
  *
@@ -14,12 +13,12 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function lsx-blocks-theme_jetpack_setup() {
+function lsx_blocks_theme_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll', array(
 			'container' => 'main',
-			'render'    => 'lsx-blocks-theme_infinite_scroll_render',
+			'render'    => 'lsx_blocks_theme_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -31,7 +30,7 @@ function lsx-blocks-theme_jetpack_setup() {
 	add_theme_support(
 		'jetpack-content-options', array(
 			'post-details' => array(
-				'stylesheet' => 'lsx-blocks-theme-style',
+				'stylesheet' => 'lsx_blocks_theme-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -41,12 +40,12 @@ function lsx-blocks-theme_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'lsx-blocks-theme_jetpack_setup' );
+add_action( 'after_setup_theme', 'lsx_blocks_theme_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function lsx-blocks-theme_infinite_scroll_render() {
+function lsx_blocks_theme_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :
