@@ -2,7 +2,7 @@
 /**
  * Responsive Images configuration
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
 
 /**
@@ -14,7 +14,7 @@
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function lsx-blocks-theme_content_image_sizes_attr( $sizes, $size ) {
+function lsx_blocks_theme_content_image_sizes_attr( $sizes, $size ) {
 	$width = $size[0];
 
 	if ( 740 <= $width ) {
@@ -27,7 +27,8 @@ function lsx-blocks-theme_content_image_sizes_attr( $sizes, $size ) {
 
 	return $sizes;
 }
-add_filter( 'wp_calculate_image_sizes', 'lsx-blocks-theme_content_image_sizes_attr', 10, 2 );
+add_filter( 'wp_calculate_image_sizes', 'lsx_blocks_theme_content_image_sizes_attr', 10, 2 );
+
 
 /**
  * Filter the `sizes` value in the header image markup.
@@ -37,13 +38,13 @@ add_filter( 'wp_calculate_image_sizes', 'lsx-blocks-theme_content_image_sizes_at
  * @param array  $attr   Array of the attributes for the image tag.
  * @return string The filtered header image HTML.
  */
-function lsx-blocks-theme_header_image_tag( $html, $header, $attr ) {
+function lsx_blocks_theme_header_image_tag( $html, $header, $attr ) {
 	if ( isset( $attr['sizes'] ) ) {
 		$html = str_replace( $attr['sizes'], '100vw', $html );
 	}
 	return $html;
 }
-add_filter( 'get_header_image_tag', 'lsx-blocks-theme_header_image_tag', 10, 3 );
+add_filter( 'get_header_image_tag', 'lsx_blocks_theme_header_image_tag', 10, 3 );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
@@ -54,7 +55,7 @@ add_filter( 'get_header_image_tag', 'lsx-blocks-theme_header_image_tag', 10, 3 )
  * @param array $size       Registered image size or flat array of height and width dimensions.
  * @return array The filtered attributes for the image markup.
  */
-function lsx-blocks-theme_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function lsx_blocks_theme_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 
 	$attr['sizes'] = '100vw';
 
@@ -64,5 +65,5 @@ function lsx-blocks-theme_post_thumbnail_sizes_attr( $attr, $attachment, $size )
 
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'lsx-blocks-theme_post_thumbnail_sizes_attr', 10, 3 );
+add_filter( 'wp_get_attachment_image_attributes', 'lsx_blocks_theme_post_thumbnail_sizes_attr', 10, 3 );
 
