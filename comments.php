@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
 
 /*
@@ -19,8 +19,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-
-<?php wp_print_styles( array( 'lsx-blocks-theme-comments' ) ); ?>
+<?php wp_print_styles( array( 'lsx_blocks_theme-comments' ) ); ?>
 <div id="comments" class="comments-area">
 
 	<?php
@@ -33,13 +32,13 @@ if ( post_password_required() ) {
 			if ( 1 === $comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'lsx-blocks-theme' ),
+					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'lsx_blocks_theme' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'lsx-blocks-theme' ) ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'lsx_blocks_theme' ) ),
 					number_format_i18n( $comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -49,7 +48,7 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<?php if ( lsx-blocks-theme_using_amp_live_list_comments() ) : ?>
+		<?php if ( lsx_blocks_theme_using_amp_live_list_comments() ) : ?>
 			<amp-live-list
 				id="amp-live-comments-list-<?php the_ID(); ?>"
 				<?php echo ( 'asc' === get_option( 'comment_order' ) ) ? ' sort="ascending" ' : ''; ?>
@@ -58,7 +57,7 @@ if ( post_password_required() ) {
 			>
 		<?php endif; ?>
 
-		<ol class="comment-list" <?php echo lsx-blocks-theme_using_amp_live_list_comments() ? 'items' : ''; ?>>
+		<ol class="comment-list" <?php echo lsx_blocks_theme_using_amp_live_list_comments() ? 'items' : ''; ?>>
 			<?php
 				wp_list_comments(
 					array(
@@ -70,19 +69,19 @@ if ( post_password_required() ) {
 		</ol><!-- .comment-list -->
 
 		<?php
-		if ( lsx-blocks-theme_using_amp_live_list_comments() ) {
-			add_filter( 'navigation_markup_template', 'lsx-blocks-theme_add_amp_live_list_pagination_attribute' );
+		if ( lsx_blocks_theme_using_amp_live_list_comments() ) {
+			add_filter( 'navigation_markup_template', 'lsx_blocks_theme_add_amp_live_list_pagination_attribute' );
 		}
 
 		the_comments_navigation();
 
-		if ( lsx-blocks-theme_using_amp_live_list_comments() ) {
-			remove_filter( 'navigation_markup_template', 'lsx-blocks-theme_add_amp_live_list_pagination_attribute' );
+		if ( lsx_blocks_theme_using_amp_live_list_comments() ) {
+			remove_filter( 'navigation_markup_template', 'lsx_blocks_theme_add_amp_live_list_pagination_attribute' );
 		}
 		?>
-		<?php if ( lsx-blocks-theme_using_amp_live_list_comments() ) : ?>
+		<?php if ( lsx_blocks_theme_using_amp_live_list_comments() ) : ?>
 			<div update>
-				<button class="button" on="tap:amp-live-comments-list-<?php the_ID(); ?>.update"><?php esc_html_e( 'New comment(s)', 'lsx-blocks-theme' ); ?></button>
+				<button class="button" on="tap:amp-live-comments-list-<?php the_ID(); ?>.update"><?php esc_html_e( 'New comment(s)', 'lsx_blocks_theme' ); ?></button>
 			</div>
 			</amp-live-list>
 		<?php endif; ?>
@@ -91,7 +90,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'lsx-blocks-theme' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'lsx_blocks_theme' ); ?></p>
 			<?php
 		endif;
 
