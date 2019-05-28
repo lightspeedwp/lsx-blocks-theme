@@ -6,12 +6,10 @@
  *
  * @package lsx_blocks_theme
  */
-
 /**
  * Load the core file
  */
 require get_template_directory() . '/inc/class-core.php';
-
 /**
  * Returns the theme instance
  *

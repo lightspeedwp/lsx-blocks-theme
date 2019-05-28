@@ -4,9 +4,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -22,9 +21,9 @@
 			?>
 			<div class="entry-meta">
 				<?php
-					lsx-blocks-theme_posted_on();
-					lsx-blocks-theme_posted_by();
-					lsx-blocks-theme_comments_link();
+					lsx_blocks_theme_posted_on();
+					lsx_blocks_theme_posted_by();
+					lsx_blocks_theme_comments_link();
 				?>
 			</div><!-- .entry-meta -->
 			<?php
@@ -32,7 +31,7 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php lsx-blocks-theme_post_thumbnail(); ?>
+	<?php lsx_blocks_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -40,7 +39,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lsx-blocks-theme' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lsx_blocks_theme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -53,7 +52,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lsx-blocks-theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lsx_blocks_theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -62,9 +61,9 @@
 
 	<footer class="entry-footer">
 		<?php
-		lsx-blocks-theme_post_categories();
-		lsx-blocks-theme_post_tags();
-		lsx-blocks-theme_edit_post_link();
+		lsx_blocks_theme_post_categories();
+		lsx_blocks_theme_post_tags();
+		lsx_blocks_theme_edit_post_link();
 		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
@@ -73,8 +72,8 @@
 if ( is_singular() ) :
 	the_post_navigation(
 		array(
-			'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'lsx-blocks-theme' ) . '</span></div>%title',
-			'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'lsx-blocks-theme' ) . '</span></div>%title',
+			'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'lsx_blocks_theme' ) . '</span></div>%title',
+			'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'lsx_blocks_theme' ) . '</span></div>%title',
 		)
 	);
 

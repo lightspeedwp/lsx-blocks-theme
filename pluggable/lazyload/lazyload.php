@@ -6,13 +6,12 @@
  *
  * @link https://github.com/Automattic/jetpack/blob/master/modules/lazy-images/lazy-images.php
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 /**
  * Main function. Runs everything.
  */
-function lsx-blocks-theme_lazyload_images() {
+function lsx_blocks_theme_lazyload_images() {
 
 	// If this is the admin page, do nothing.
 	if ( is_admin() ) {
@@ -30,42 +29,42 @@ function lsx-blocks-theme_lazyload_images() {
 	}
 
 	// If AMP is active, do nothing.
-	if ( lsx-blocks-theme_is_amp() ) {
+	if ( lsx_blocks_theme_is_amp() ) {
 		return;
 	}
 
-	add_action( 'wp_head', 'lsx-blocks-theme_setup_filters', PHP_INT_MAX );
-	add_action( 'wp_enqueue_scripts', 'lsx-blocks-theme_enqueue_assets' );
+	add_action( 'wp_head', 'lsx_blocks_theme_setup_filters', PHP_INT_MAX );
+	add_action( 'wp_enqueue_scripts', 'lsx_blocks_theme_enqueue_assets' );
 
 	// Do not lazy load avatar in admin bar.
-	add_action( 'admin_bar_menu', 'lsx-blocks-theme_remove_filters', 0 );
-	add_filter( 'wp_kses_allowed_html', 'lsx-blocks-theme_allow_lazy_attributes' );
+	add_action( 'admin_bar_menu', 'lsx_blocks_theme_remove_filters', 0 );
+	add_filter( 'wp_kses_allowed_html', 'lsx_blocks_theme_allow_lazy_attributes' );
 
 }
-add_action( 'wp', 'lsx-blocks-theme_lazyload_images' );
+add_action( 'wp', 'lsx_blocks_theme_lazyload_images' );
 
 /**
  * Setup filters to enable lazy-loading of images.
  */
-function lsx-blocks-theme_setup_filters() {
-	add_filter( 'the_content', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	add_filter( 'post_thumbnail_html', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	add_filter( 'get_avatar', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	add_filter( 'widget_text', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	add_filter( 'get_image_tag', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	add_filter( 'wp_get_attachment_image_attributes', 'lsx-blocks-theme_process_image_attributes', PHP_INT_MAX );
+function lsx_blocks_theme_setup_filters() {
+	add_filter( 'the_content', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	add_filter( 'post_thumbnail_html', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	add_filter( 'get_avatar', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	add_filter( 'widget_text', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	add_filter( 'get_image_tag', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	add_filter( 'wp_get_attachment_image_attributes', 'lsx_blocks_theme_process_image_attributes', PHP_INT_MAX );
 }
 
 /**
  * Remove filters for images that should not be lazy-loaded.
  */
-function lsx-blocks-theme_remove_filters() {
-	remove_filter( 'the_content', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	remove_filter( 'post_thumbnail_html', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	remove_filter( 'get_avatar', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	remove_filter( 'widget_text', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	remove_filter( 'get_image_tag', 'lsx-blocks-theme_add_image_placeholders', PHP_INT_MAX );
-	remove_filter( 'wp_get_attachment_image_attributes', 'lsx-blocks-theme_process_image_attributes', PHP_INT_MAX );
+function lsx_blocks_theme_remove_filters() {
+	remove_filter( 'the_content', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	remove_filter( 'post_thumbnail_html', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	remove_filter( 'get_avatar', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	remove_filter( 'widget_text', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	remove_filter( 'get_image_tag', 'lsx_blocks_theme_add_image_placeholders', PHP_INT_MAX );
+	remove_filter( 'wp_get_attachment_image_attributes', 'lsx_blocks_theme_process_image_attributes', PHP_INT_MAX );
 }
 
 /**
@@ -74,7 +73,7 @@ function lsx-blocks-theme_remove_filters() {
  * @param array $allowed_tags The allowed tags and their attributes.
  * @return array
  */
-function lsx-blocks-theme_allow_lazy_attributes( $allowed_tags ) {
+function lsx_blocks_theme_allow_lazy_attributes( $allowed_tags ) {
 	if ( ! isset( $allowed_tags['img'] ) ) {
 		return $allowed_tags;
 	}
@@ -95,7 +94,7 @@ function lsx-blocks-theme_allow_lazy_attributes( $allowed_tags ) {
  * @param object $content The content.
  * @return object
  */
-function lsx-blocks-theme_add_image_placeholders( $content ) {
+function lsx_blocks_theme_add_image_placeholders( $content ) {
 	// Don't lazyload for feeds, previews.
 	if ( is_feed() || is_preview() ) {
 		return $content;
@@ -106,7 +105,7 @@ function lsx-blocks-theme_add_image_placeholders( $content ) {
 	}
 
 	// Find all <img> elements via regex, add lazy-load attributes.
-	$content = preg_replace_callback( '#<(img)([^>]+?)(>(.*?)</\\1>|[\/]?>)#si', 'lsx-blocks-theme_process_image', $content );
+	$content = preg_replace_callback( '#<(img)([^>]+?)(>(.*?)</\\1>|[\/]?>)#si', 'lsx_blocks_theme_process_image', $content );
 	return $content;
 
 }
@@ -118,7 +117,7 @@ function lsx-blocks-theme_add_image_placeholders( $content ) {
  * @param string $classes A string of space-separated classes.
  * @return bool
  */
-function lsx-blocks-theme_should_skip_image_with_blacklisted_class( $classes ) {
+function lsx_blocks_theme_should_skip_image_with_blacklisted_class( $classes ) {
 	$blacklisted_classes = array(
 		'skip-lazy',
 	);
@@ -138,19 +137,19 @@ function lsx-blocks-theme_should_skip_image_with_blacklisted_class( $classes ) {
  *
  * @return string The image with updated lazy attributes
  */
-function lsx-blocks-theme_process_image( $matches ) {
+function lsx_blocks_theme_process_image( $matches ) {
 	$old_attributes_str       = $matches[2];
 	$old_attributes_kses_hair = wp_kses_hair( $old_attributes_str, wp_allowed_protocols() );
 	if ( empty( $old_attributes_kses_hair['src'] ) ) {
 		return $matches[0];
 	}
-	$old_attributes = lsx-blocks-theme_flatten_kses_hair_data( $old_attributes_kses_hair );
-	$new_attributes = lsx-blocks-theme_process_image_attributes( $old_attributes );
+	$old_attributes = lsx_blocks_theme_flatten_kses_hair_data( $old_attributes_kses_hair );
+	$new_attributes = lsx_blocks_theme_process_image_attributes( $old_attributes );
 	// If we didn't add lazy attributes, just return the original image source.
 	if ( empty( $new_attributes['data-src'] ) ) {
 		return $matches[0];
 	}
-	$new_attributes_str = lsx-blocks-theme_build_attributes_string( $new_attributes );
+	$new_attributes_str = lsx_blocks_theme_build_attributes_string( $new_attributes );
 
 	return sprintf( '<img %1$s><noscript>%2$s</noscript>', $new_attributes_str, $matches[0] );
 }
@@ -163,21 +162,21 @@ function lsx-blocks-theme_process_image( $matches ) {
  *
  * @return array The updated image attributes array with lazy load attributes.
  */
-function lsx-blocks-theme_process_image_attributes( $attributes ) {
+function lsx_blocks_theme_process_image_attributes( $attributes ) {
 	if ( empty( $attributes['src'] ) ) {
 		return $attributes;
 	}
-	if ( ! empty( $attributes['class'] ) && lsx-blocks-theme_should_skip_image_with_blacklisted_class( $attributes['class'] ) ) {
+	if ( ! empty( $attributes['class'] ) && lsx_blocks_theme_should_skip_image_with_blacklisted_class( $attributes['class'] ) ) {
 		return $attributes;
 	}
 
 	$old_attributes = $attributes;
 
 	// Add the lazy class to the img element.
-	$attributes['class'] = lsx-blocks-theme_set_lazy_class( $attributes );
+	$attributes['class'] = lsx_blocks_theme_set_lazy_class( $attributes );
 
 	// Set placeholder and lazy-src.
-	$attributes['src'] = lsx-blocks-theme_get_placeholder_image();
+	$attributes['src'] = lsx_blocks_theme_get_placeholder_image();
 
 	// Set data-src to the original source uri.
 	$attributes['data-src'] = $old_attributes['src'];
@@ -202,7 +201,7 @@ function lsx-blocks-theme_process_image_attributes( $attributes ) {
  * @param array $attributes <img> element attributes.
  * @return string
  */
-function lsx-blocks-theme_set_lazy_class( $attributes ) {
+function lsx_blocks_theme_set_lazy_class( $attributes ) {
 	if ( array_key_exists( 'class', $attributes ) ) {
 		$classes  = $attributes['class'];
 		$classes .= ' lazy';
@@ -218,7 +217,7 @@ function lsx-blocks-theme_set_lazy_class( $attributes ) {
  *
  * @return string The URL to the placeholder image.
  */
-function lsx-blocks-theme_get_placeholder_image() {
+function lsx_blocks_theme_get_placeholder_image() {
 	return get_theme_file_uri( '/images/placeholder.svg' );
 }
 
@@ -228,7 +227,7 @@ function lsx-blocks-theme_get_placeholder_image() {
  * @param array $attributes Array of attributes.
  * @return string $flattened_attributes
  */
-function lsx-blocks-theme_flatten_kses_hair_data( $attributes ) {
+function lsx_blocks_theme_flatten_kses_hair_data( $attributes ) {
 	$flattened_attributes = array();
 	foreach ( $attributes as $name => $attribute ) {
 		$flattened_attributes[ $name ] = $attribute['value'];
@@ -242,7 +241,7 @@ function lsx-blocks-theme_flatten_kses_hair_data( $attributes ) {
  * @param array $attributes Array of attributes.
  * @return string
  */
-function lsx-blocks-theme_build_attributes_string( $attributes ) {
+function lsx_blocks_theme_build_attributes_string( $attributes ) {
 	$string = array();
 	foreach ( $attributes as $name => $value ) {
 		if ( '' === $value ) {
@@ -258,7 +257,7 @@ function lsx-blocks-theme_build_attributes_string( $attributes ) {
 /**
  * Enqueue and defer lazyload script.
  */
-function lsx-blocks-theme_enqueue_assets() {
-	wp_enqueue_script( 'lsx-blocks-theme-lazy-load-images', get_theme_file_uri( '/pluggable/lazyload/js/lazyload.js' ), array(), '20151215', false );
-	wp_script_add_data( 'lsx-blocks-theme-lazy-load-images', 'defer', true );
+function lsx_blocks_theme_enqueue_assets() {
+	wp_enqueue_script( 'lsx_blocks_theme-lazy-load-images', get_theme_file_uri( '/pluggable/lazyload/js/lazyload.js' ), array(), '20151215', false );
+	wp_script_add_data( 'lsx_blocks_theme-lazy-load-images', 'defer', true );
 }

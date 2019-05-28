@@ -4,9 +4,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -14,7 +13,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php lsx-blocks-theme_post_thumbnail(); ?>
+	<?php lsx_blocks_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -22,7 +21,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lsx-blocks-theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lsx_blocks_theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -32,7 +31,7 @@
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
-				lsx-blocks-theme_edit_post_link();
+				lsx_blocks_theme_edit_post_link();
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>

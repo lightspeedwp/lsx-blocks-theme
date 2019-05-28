@@ -4,9 +4,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,10 +16,10 @@
 		?>
 		<div class="entry-meta">
 			<?php
-				lsx-blocks-theme_posted_on();
-				lsx-blocks-theme_posted_by();
-				lsx-blocks-theme_attachment_in( $post );
-				lsx-blocks-theme_comments_link();
+				lsx_blocks_theme_posted_on();
+				lsx_blocks_theme_posted_by();
+				lsx_blocks_theme_attachment_in( $post );
+				lsx_blocks_theme_comments_link();
 			?>
 		</div><!-- .entry-meta -->
 
@@ -44,7 +43,7 @@
 
 	<footer class="entry-footer">
 		<?php
-			lsx-blocks-theme_edit_post_link();
+			lsx_blocks_theme_edit_post_link();
 		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
@@ -54,7 +53,7 @@
 
 // If the attachment is attached to a post, try linking to other attachments on the same post.
 if ( ! empty( $post->post_parent ) ) :
-	lsx-blocks-theme_the_attachment_navigation();
+	lsx_blocks_theme_the_attachment_navigation();
 endif;
 
 // If comments are open or we have at least one comment, load up the comment template.

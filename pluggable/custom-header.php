@@ -4,37 +4,36 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses lsx-blocks-theme_header_style()
+ * @uses lsx_blocks_theme_header_style()
  */
-function lsx-blocks-theme_custom_header_setup() {
+function lsx_blocks_theme_custom_header_setup() {
 	add_theme_support(
 		'custom-header', apply_filters(
-			'lsx-blocks-theme_custom_header_args', array(
+			'lsx_blocks_theme_custom_header_args', array(
 				'default-image'          => '',
 				'default-text-color'     => '000000',
 				'width'                  => 1600,
 				'height'                 => 250,
 				'flex-height'            => true,
-				'wp-head-callback'       => 'lsx-blocks-theme_header_style',
+				'wp-head-callback'       => 'lsx_blocks_theme_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'lsx-blocks-theme_custom_header_setup' );
+add_action( 'after_setup_theme', 'lsx_blocks_theme_custom_header_setup' );
 
-if ( ! function_exists( 'lsx-blocks-theme_header_style' ) ) :
+if ( ! function_exists( 'lsx_blocks_theme_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see lsx-blocks-theme_custom_header_setup().
+	 * @see lsx_blocks_theme_custom_header_setup().
 	 */
-	function lsx-blocks-theme_header_style() {
+	function lsx_blocks_theme_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
