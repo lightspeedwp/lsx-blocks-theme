@@ -6,6 +6,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 /**
  * Set up the WordPress core custom header feature.
  *

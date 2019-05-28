@@ -8,6 +8,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 /**
  * Main function. Runs everything.
  */

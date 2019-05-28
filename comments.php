@@ -9,7 +9,6 @@
  *
  * @package lsx_blocks_theme
  */
-
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will

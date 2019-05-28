@@ -6,6 +6,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 ?>
 <section class="no-results not-found">
 	<header class="page-header">

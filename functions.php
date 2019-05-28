@@ -6,6 +6,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 /**
  * Load the core file
  */

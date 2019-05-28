@@ -9,9 +9,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package lsx-blocks-theme
+ * @package lsx_blocks_theme
  */
-
 get_header(); ?>
 
 	<main id="primary" class="site-main">
@@ -25,10 +24,10 @@ get_header(); ?>
 		 * This call runs only once on index and archive pages.
 		 * At some point, override functionality should be built in similar to the template part below.
 		 */
-		wp_print_styles( array( 'lsx-blocks-theme-content' ) ); // Note: If this was already done it will be skipped.
+		wp_print_styles( array( 'lsx_blocks_theme-content' ) ); // Note: If this was already done it will be skipped.
 
 		/* Display the appropriate header when required. */
-		lsx-blocks-theme_index_header();
+		lsx_blocks_theme_index_header();
 
 		/* Start the Loop. */
 		while ( have_posts() ) :

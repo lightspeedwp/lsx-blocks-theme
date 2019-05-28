@@ -4,6 +4,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
