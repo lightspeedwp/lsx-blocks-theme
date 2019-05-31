@@ -1,4 +1,4 @@
-<p align="center"><img src="https://lsx-demo.lsdev.biz/wp-content/uploads/2017/08/LSX-logo-white-background.svg"></p>
+<h1 align="center">LSX Bocks Theme</h1>
 <p align="center"><img src="https://travis-ci.org/lightspeeddevelopment/lsx-blocks-theme.svg?branch=master"></p>
 
 The *LSX Blocks Theme* is a fully Gutenberg compatible [WordPress](https://wordpress.org) theme. Ready to build with our custom Gutenberg blocks?
