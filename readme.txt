@@ -1,37 +1,27 @@
 === LSX Blocks Theme ===
 Contributors: feedmymedia
 Donate link: https://www.donate.lsdev.biz/
-Tags: LSX Theme, Gutenberg, Block Based Builder, WordPress Theme, 
+Tags: LSX Theme, Gutenberg, Block Based Builder, WordPress Theme, Drag and Drop Theme
 Requires at least: 5.1.1
-Tested up to: 5.1.1
+Tested up to: 5.2.1
 Requires PHP: 7.0
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-The new Gutenberg editor is here, and with it comes the new block editor.
+The LSX Blocks Theme is a fully Gutenberg compatible WordPress theme. Ready to build with our custom Gutenberg blocks?
 
-We have built the theme so you can simply drag and drop them into your editor, configure to your wishes and you are done!
+This theme is powered by the latest software, improving your ability to easily create your pages and posts with the new drag-and-drop Gutenberg editor.
 
-== Frequently Asked Questions ==
+Check out the LSX Demo site for a full look into the theme functionality.
 
-= Where can I find LSX Blocks plugin documentation and user guides? =
-For more information on setting up and configuring the Blocks plugin please refer to our [documentation](https://www.lsx.lsdev.biz/documentation/)
+== LSX Help & Support ==
+Take a look at all our (Frequently Asked Questions), we are sure you'll find what you're looking for.
 
-= Where can I get support or talk to other users =
-For help setting up your site or training on using blocks, feel free to [contact us for a quote.](https://www.lsdev.biz/contact-us/)
+If you are experiencing issues with the LSX Theme, please log any bug issues you are having on the LSX Github Issues page.
 
-= Will the LSX Blocks plugin work with my theme? =
-
-Not unless you are using the [LSX Theme](https://www.lsx.lsdev.biz)!
-
-LSX Blocks theme was built for the Gutenberg for WordPress update, so this is a requirement in order for the blocks to function correctly.
-
-== Where can I report bugs or contribute to the project? ==
-
-Bugs can be reported either in our support forum or preferably on the [LSX Blocks Theme Github repository](https://github.com/lightspeeddevelopment/lsx-blocks/issues).
-
-= The LSX Blocks Theme is awesome! Can I contribute? =
-Yes you can! Join in on our [GitHub repository](https://github.
+== Contributing to the LSX Blocks theme ==
+If you're a developer who's spotted a bug issue and have a fix, or simply have functionality you think would extend our core theme, we are always happy to accept your contribution! Visit the LSX theme on Github and submit a Pull Request with your updates.
 
 == Changelog ==
 ** Initial release **
