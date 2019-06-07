@@ -7,12 +7,10 @@ This theme is powered by the latest software, improving your ability to easily c
 
 Check out the [LSX Demo site](https://lsx.lsdev.biz/) for a full look into the theme functionality.
 
-## LSX Blocks Theme Support
+## LSX Help & Support
+Take a look at all our [Frequently Asked Questions](https://lsx.lsdev.biz/documentation/frequently-asked-questions/), we are sure you'll find what you're looking for.
 
-Before logging a ticket with support, please make sure you have the latest version of WordPress installed. 
+Looking to bring a bug issue to our attention? Log the issue via the LSX Blocks Theme [Issues page on Github](https://github.com/lightspeeddevelopment/lsx-blocks-theme/issues/) 
 
-Your WordPress website needs to be running PHP version 7.0 or higher in order to make use of the LSX Blocks theme.
-
-## LSX Blocks Theme Extensions 
-
-The LSX Blocks Theme also comes with a bunch of extension options for post types and customizer functionality. Check out our [list of extensions here](https://lsx.lsdev.biz/extensions/).
+## Contributing to the LSX Blocks theme
+If you're a developer who's spotted a bug issue and have a fix, or simply have functionality you think would extend our core theme, we are always happy to accept your contribution! Visit the [LSX Blocks theme](https://github.com/lightspeeddevelopment/lsx-blocks-theme) on Github and submit a Pull Request with your updates.
