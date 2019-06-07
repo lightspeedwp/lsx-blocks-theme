@@ -213,8 +213,14 @@ function wprig_post_thumbnail() {
 	if ( is_singular() ) :
 		?>
 
-		<div class="post-thumbnail">
-			<?php the_post_thumbnail( 'full', array( 'class' => 'skip-lazy' ) ); ?>
+	<div class="post-thumbnail">
+			<?php
+			the_post_thumbnail( 'full',
+				array(
+					'class' => 'skip-lazy',
+				)
+			);
+			?>
 		</div><!-- .post-thumbnail -->
 
 		<?php

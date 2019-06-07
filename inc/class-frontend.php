@@ -24,7 +24,7 @@ class Frontend {
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
-		add_filter( 'wp_resource_hints', array( $this, 'resource_hints' ), 10, 2 );	
+		add_filter( 'wp_resource_hints', array( $this, 'resource_hints' ), 10, 2 );
 	}
 
 	/**

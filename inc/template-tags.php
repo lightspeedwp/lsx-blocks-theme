@@ -6,6 +6,7 @@
  *
  * @package lsx_blocks_theme
  */
+
 /**
  * Determine whether this is an AMP response.
  *
@@ -213,7 +214,13 @@ function lsx_blocks_theme_post_thumbnail() {
 		?>
 
 		<div class="post-thumbnail">
-			<?php the_post_thumbnail( 'full', array( 'class' => 'skip-lazy' ) ); ?>
+			<?php
+			the_post_thumbnail( 'full',
+				array(
+					'class' => 'skip-lazy',
+				)
+			);
+			?>
 		</div><!-- .post-thumbnail -->
 
 		<?php
