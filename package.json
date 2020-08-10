@@ -40,7 +40,7 @@
     "gulp-image": "^6.2.1",
     "gulp-newer": "^1.4.0",
     "gulp-phpcs": "^3.1.0",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-print": "^5.0.2",
     "gulp-sass": "^4.1.0",
     "gulp-sort": "^2.0.0",
