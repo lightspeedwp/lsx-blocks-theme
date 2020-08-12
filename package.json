@@ -13,7 +13,9 @@
   "bugs": {
     "url": "https://github.com/lightspeeddevelopment/lsx-blocks-theme/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "snyk": "^1.373.1"
+  },
   "devDependencies": {
     "ajv": "^6.12.3",
     "autoprefixer": "^9.8.6",
@@ -73,6 +75,9 @@
     "build": "gulp",
     "translate": "gulp translate",
     "bundle": "gulp bundleTheme",
-    "test": "gulp testTheme"
-  }
+    "test": "gulp testTheme",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
