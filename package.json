@@ -24,7 +24,7 @@
     "browser-sync": "^2.26.12",
     "eslint": "^7.7.0",
     "eslint-config-gulp": "^5.0.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard": "^15.0.0",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
